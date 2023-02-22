@@ -51,6 +51,7 @@ def input_guess(expected_length: int) -> str:
         guess = input(f"That wasn't {expected_length} chars! Try again: ")
     if len(guess) == expected_length:
         return guess
+    return
 
 def main() -> None:
     """The entrypoint of the program and main game loop."""
