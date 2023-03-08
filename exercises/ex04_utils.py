@@ -8,15 +8,15 @@ def all(numbers: list[int], single: int) -> bool:
     count: int = 0
     running: bool = True 
     while running:
-        if numbers == []:
+        if numbers == []:  # if blank, its false
             return False
-        if numbers[idx] == single:
+        if numbers[idx] == single:  # if same moves to next one
             idx += 1 
             count += 1
-        if count == len(numbers):
+        if count == len(numbers):  # stops once you get to the end
             running = False
             return True 
-        if numbers[idx] != single:
+        if numbers[idx] != single:  # if different its false
             return False
     return False 
         
@@ -28,9 +28,9 @@ def max(numbers: list[int]) -> int:
     if len(numbers) == 0:
         raise ValueError("max() arg is an empty List")
     while idx < len(numbers):
-        if numbers[idx] > max_value:
+        if numbers[idx] > max_value:  # if next number is larger then previous it becomes the new max
             max_value = numbers[idx]
-        idx += 1
+        idx += 1  # repeat untill length is exausted
     return max_value
 
 
@@ -41,16 +41,16 @@ def is_equal(first: list[int], second: list[int]) -> bool:
     idx_second: int = 0
     count: int = 0
     while running:
-        if len(first) != len(second):
+        if len(first) != len(second):  # if lengths are different, its false 
             return False
-        if len(first) == 0 and len(second) == 0:
+        if len(first) == 0 and len(second) == 0:  # if empty you get true 
             return True
-        if count == len(first):
+        if count == len(first):  # stop once done and return true 
             running = False
             return True 
-        if first[idx_first] != second[idx_second]:
+        if first[idx_first] != second[idx_second]:  # if not equal, flase 
             return False
-        if first[idx_first] == second[idx_second]:
+        if first[idx_first] == second[idx_second]:  # if equal, move to next 
             idx_first += 1
             idx_second += 1 
             count += 1
