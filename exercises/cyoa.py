@@ -36,13 +36,10 @@ def treasure() -> None:
         print("You missed out on the treasure. Better luck next time!")
 
 
-def tavern() -> int:
-    """Player heads to a tavern where their drink cost changes at random."""
+def tavern(number_of_ales: int) -> int:
+    """Player heads to a tavern where their drink cost 20 coins and they pick how many drinks they have."""
     global points
-    print(f"Sir {player}, you head to a nearby tavern. Do you buy an ale? {BEER_EMOJI}")
-    choice: str = input("Enter 'y' for yes or 'n' for no: ")
-    if choice == "y":
-        number_of_ales = int(input("How many ales would you like? "))
+    if number_of_ales > 0:
         cost: int = 20 * number_of_ales
         points -= cost
         print(f"You bought {number_of_ales} ale(s) for {cost} {MONEYBAG_EMOJI} total at 20 {MONEYBAG_EMOJI} per drink.")
@@ -82,7 +79,8 @@ def main() -> None:
         if choice == "1":
             treasure()
         elif choice == "2":
-            tavern()
+            number_of_ales = int(input(f"Sir {player}, you head to a nearby tavern. How many ale(s) {BEER_EMOJI} would you like to buy? "))
+            tavern(int(number_of_ales))
         elif choice == "3":
             forest()
         elif choice == "4":
