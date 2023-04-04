@@ -27,7 +27,7 @@ def favorite_color(d: dict[str, str]) -> str:
     common: str = None
     most: int = -1
     for color in colors_empty:
-        count: str = colors_empty[color]
+        count: int = colors_empty[color]
         if count > most:
             common = color
             most = count
@@ -37,7 +37,7 @@ def favorite_color(d: dict[str, str]) -> str:
 # count
 def count(input_list: list[str]) -> dict[str, int]:
     """Function that creates a dict out of a list. Checks list for repeating indexes and makes them the keys, the number of times they are repeated becomes the vlaues."""
-    empty_dict = {}
+    empty_dict: dict[str, str] = {}
     for item in input_list:
         if item in empty_dict:
             empty_dict[item] += 1
